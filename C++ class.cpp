@@ -1,45 +1,47 @@
 #include <iostream>
 using namespace std;
 #include <string>
-//The class should have :
-//	private variables : name and age
-	//public function to set the values
-//	public function to display the values
-	//In main() :
-	//Create one object from the class.
-//	Call the functions.
-   
-class Student {
+//Write a C++ program to create a class called Car that has private member variables for:
+/*
+brand
+model
+year*/
+
+class Car 
+{
 private :
-	string name;
-	int age;
+	string brand;
+	string model;
+	int year;
 
 public :
-	void setname(string n)
-	{
-		name = n;
+	void setbrand (string b) {
+		brand = b;
 	}
-	string getname()
-	{
-		return name;
+	string getbrand() {
+		return brand;
 	}
-	void setage(int a) {
-		 age=a;
-	 }
-	int getage() {
-		return age;
+	void setmodel(string m) {
+		model = m;
 	}
-
+	string getmodel() {
+		return model;
+	}
+	void setyear(int y) {
+		year = y;
+	}
+	int getyear() {
+		return year;
+	}
 };
-
-int main() {
-	Student s1;
-
-	s1.setname("Ahmed");
-	s1.setage(18);
-	cout << "the name is :" << s1.getname() << endl;
-	cout << "the age is:" << s1.getage() << endl;
-
+ int main (){
+	 Car c1;
+	 c1.setbrand("octavia");
+	 c1.setmodel("NPA");
+	 c1.setyear(2016);
+	 cout << "brand :" << c1.getbrand() << endl;
+	 cout << "model :" << c1.getmodel() << endl;
+	 cout << "year :" << c1.getyear() << endl;
 
 
 
