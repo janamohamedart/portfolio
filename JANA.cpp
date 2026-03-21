@@ -1,41 +1,39 @@
 #include <iostream>
 using namespace std;
 
-class Rectangle {
+class Account {
 private:
-    float length;
-    float width;
-
+    float balance;
 public:
-    void setlength(float l) {
-        length = l;
+    void setbalance(float b) {
+        balance = b;
     }
 
-    float getlength() {
-        return length;
+    float getbalance() {
+        return balance;
     }
 
-    void setwidth(float w) {
-        width = w;
-    }
-
-    float getwidth() {
-        return width;
-    }
-
-    friend void displayArea(Rectangle rec);
+ 
+    friend void withdraw(Account a, float amount);
 };
-
-void displayArea(Rectangle rec) {
-    cout << "Area = " << (rec.length * rec.width) << endl;
+void  withdraw(Account a, float amount) {
+ 
+    if (a.balance >= amount) {
+        a.balance -= amount;
+        cout << "Withdrawal successful" << endl;
+        cout <<"The balance now : " << a.balance << endl;
+    }
+    else {
+        cout<< "Insufficient balance" << endl;
+    }
 }
 
 int main() {
-    Rectangle rec;
-    rec.setlength(6);
-    rec.setwidth(3);
-
-    displayArea(rec);
+    Account a;
+  
+    a.setbalance(100); 
+    withdraw(a, 30);
+    withdraw(a, 80);
 
     return 0;
 }
