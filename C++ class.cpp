@@ -1,48 +1,35 @@
 #include <iostream>
-using namespace std;
 #include <string>
-//Write a C++ program to create a class called Car that has private member variables for:
-/*
-brand
-model
-year*/
+using namespace std;
 
-class Car 
-{
+class Rectangle {
 private :
-	string brand;
-	string model;
-	int year;
+	float length;
+	float width;
+public:
+	Rectangle(float l = 0, float w = 0) {
+		length = l;
+		width = w;
+	}
+	Rectangle operator +(Rectangle r) {
+		Rectangle temp;
+		temp.length = length + r.length;
+		temp.width = width + r.width;
+		return temp;
+	}
+	void display() {
+		cout << "length :" << length << endl;
+		cout << "width:" << width << endl;
 
-public :
-	void setbrand (string b) {
-		brand = b;
 	}
-	string getbrand() {
-		return brand;
-	}
-	void setmodel(string m) {
-		model = m;
-	}
-	string getmodel() {
-		return model;
-	}
-	void setyear(int y) {
-		year = y;
-	}
-	int getyear() {
-		return year;
-	}
+
 };
- int main (){
-	 Car c1;
-	 c1.setbrand("octavia");
-	 c1.setmodel("NPA");
-	 c1.setyear(2016);
-	 cout << "brand :" << c1.getbrand() << endl;
-	 cout << "model :" << c1.getmodel() << endl;
-	 cout << "year :" << c1.getyear() << endl;
-
+int main() {
+	Rectangle r1(4, 5);
+	Rectangle r2(2, 3);
+	Rectangle r3;
+	r3 = r1 + r2;
+	r3.display();
 
 
 	return 0;
