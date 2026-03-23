@@ -1,36 +1,44 @@
 #include <iostream>
-#include <string>
+#include<string>
 using namespace std;
-
-class Rectangle {
+/*
+Create a class named Time with :
+hours
+minutes
+Implement a constructor to set hours and minutes.
+Add a display() function to print time in the format : hh:mm.
+Overload the + operator to add two Time objects.
+Example : 1 : 50 + 2 : 20 = 4 : 10
+Overload the - operator to subtract two Time objects.
+Example : 3 : 30 - 1 : 45 = 1 : 45
+Test your program by creating two Time objects and performing addition and subtraction. */
+class Time {
 private :
-	float length;
-	float width;
+	int hours;
+	int minutes;
 public:
-	Rectangle(float l = 0, float w = 0) {
-		length = l;
-		width = w;
+	Time(int h = 0, int m = 0) {
+		hours = h;
+		minutes = m;
 	}
-	Rectangle operator +(Rectangle r) {
-		Rectangle temp;
-		temp.length = length + r.length;
-		temp.width = width + r.width;
+	Time operator +(Time t) {
+		Time temp;
+		temp.hours = hours + t.hours;
+		temp.minutes = minutes + t.minutes;
 		return temp;
 	}
 	void display() {
-		cout << "length :" << length << endl;
-		cout << "width:" << width << endl;
+		cout << "hours:" << hours << endl;
+		cout << "minutes:" << minutes << endl;
 
 	}
-
 };
 int main() {
-	Rectangle r1(4, 5);
-	Rectangle r2(2, 3);
-	Rectangle r3;
-	r3 = r1 + r2;
-	r3.display();
-
+	Time c1(5, 55);
+	Time c2(3, 4);
+	Time c3;
+	c3 = c1 + c2;
+	c3.display();
 
 	return 0;
 }
