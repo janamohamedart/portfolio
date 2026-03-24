@@ -1,44 +1,49 @@
 #include <iostream>
-#include<string>
 using namespace std;
-/*
-Create a class named Time with :
-hours
-minutes
-Implement a constructor to set hours and minutes.
-Add a display() function to print time in the format : hh:mm.
-Overload the + operator to add two Time objects.
-Example : 1 : 50 + 2 : 20 = 4 : 10
-Overload the - operator to subtract two Time objects.
-Example : 3 : 30 - 1 : 45 = 1 : 45
-Test your program by creating two Time objects and performing addition and subtraction. */
-class Time {
-private :
-	int hours;
-	int minutes;
+
+private:
+	int* arr;
+	int size;
 public:
-	Time(int h = 0, int m = 0) {
-		hours = h;
-		minutes = m;
+	Numbers(int n) {
+		size = n;
+		arr = new int[size];
 	}
-	Time operator +(Time t) {
-		Time temp;
-		temp.hours = hours + t.hours;
-		temp.minutes = minutes + t.minutes;
+	void input() {
+		for (int i = 0; i < size; i++) {
+		
+			cin >> arr[i];
+		}
+	}
+	int maxvalue() {
+		int max = arr[0];
+		for (int i = 1; i < size; i++) {
+			if (arr[i] > max) {
+				max = arr[i];
+
+			}
+		}
+		return max;
+	}
+	int sum(){
+		int temp=0;
+		for (int i = 0; i < size; i++) {
+			temp += arr[i];
+			
+		}
 		return temp;
 	}
-	void display() {
-		cout << "hours:" << hours << endl;
-		cout << "minutes:" << minutes << endl;
-
+	~Numbers() {
+		delete[] arr;
 	}
 };
 int main() {
-	Time c1(5, 55);
-	Time c2(3, 4);
-	Time c3;
-	c3 = c1 + c2;
-	c3.display();
+	int n;
+	cin >> n; 
+	Numbers num(n);
+	num.input();
+	cout <<"max number is:" << num.maxvalue() << endl;
+	cout << "the sum of the numbers are:" << num.sum() << endl;
 
 	return 0;
 }
